@@ -101,6 +101,8 @@ class Stream(object):
         """
         if kwargs.get('gzip', True):
             self._fd = gzip.open(fpath, mode)
+        elif kwargs.get('stream', True):
+            self._fd = fpath
         else:
             import builtins
             self._fd = builtins.open(fpath, mode)
